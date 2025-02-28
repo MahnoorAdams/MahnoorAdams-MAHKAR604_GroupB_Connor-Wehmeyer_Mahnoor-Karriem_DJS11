@@ -7,7 +7,7 @@ export default function Home({ onShowSelect }) {
   const [sortDirection, setSortDirection] = useState('asc');
 
   useEffect(() => {
-    fetch('https://podcast-api.netlify.app')
+    fetch('https://mahnoorspodcastshow.netlify.app/')
       .then(res => res.json())
       .then(data => {
         setShows(data);
