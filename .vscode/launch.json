@@ -5,21 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "chrome",
             "request": "launch",
-            "name": "Run esbuild",
-            "runtimeExecutable": "esbuild",
-            "cwd": "${workspaceFolder}/vite-project",
-            "args": []
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}"
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:5173/",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

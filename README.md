@@ -179,4 +179,3 @@ Please refer to the DJS rubric found in your dashboard spreadsheet for more deta
 | P3.51|                            | User is able to find shows based on fuzzy matching of concepts                                                                 | Hard       | 3     |
 | P3.52|                            | App displays the exact timestamp location of where they left off any episode                                                  | Hard       | 3     |
 
-

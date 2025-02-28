@@ -1,6 +1,7 @@
+
 import { useState } from 'react';
-import Home from './pages/Home';
-import Show from './pages/Show';
+import Home from './pages/Home.jsx';
+import Show from './pages/Show.jsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
