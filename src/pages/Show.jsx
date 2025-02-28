@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Show({ showId, onBack }) {
   const [show, setShow] = useState(null);
@@ -10,19 +10,13 @@ export default function Show({ showId, onBack }) {
   });
 
   useEffect(() => {
-    if (!showId) return;
-
-    fetch(`https://mahnoorspodcastshow.netlify.app/638d9fe5-ee48-4355-9951-246a421bb499/${showId}`)
+    fetch(`https://podcast-api.netlify.app/id/${showId}`)
       .then(res => res.json())
       .then(data => {
         setShow(data);
         setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Failed to fetch data:', err);
-        setLoading(false); // Handle error state
       });
-  }, [showId]);  // Re-fetch when showId changes
+  }, [showId]);
 
   const toggleFavorite = (episodeId) => {
     setFavorites(prev => {
@@ -32,14 +26,6 @@ export default function Show({ showId, onBack }) {
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
       return newFavorites;
     });
-  };
-
-  const handlePlayPause = (episode) => {
-    if (currentEpisode && currentEpisode.episode === episode.episode) {
-      setCurrentEpisode(null); // Pause the episode
-    } else {
-      setCurrentEpisode(episode); // Play the new episode
-    }
   };
 
   if (loading) {
@@ -67,7 +53,7 @@ export default function Show({ showId, onBack }) {
                 <div key={episode.episode} className="episode">
                   <h3>{episode.title}</h3>
                   <div className="episode-controls">
-                    <button onClick={() => handlePlayPause(episode)}>
+                    <button onClick={() => setCurrentEpisode(episode)}>
                       {currentEpisode?.episode === episode.episode ? '⏸ Pause' : '▶ Play'}
                     </button>
                     <button 
